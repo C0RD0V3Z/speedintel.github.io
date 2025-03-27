@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedIntel - Optimización de Ping y FPS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@600&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle, #0d0d0d, #1a1a2e);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4em;
+            color: #66ccff;
+            text-shadow: 0 0 15px #66ccff, 0 0 30px #ff00b0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 50px;
+            font-size: 1.5em;
+            color: white;
+            background: linear-gradient(45deg, #8e2de2, #4a00e0);
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 40px rgba(142, 45, 226, 0.7);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .download-btn:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 60px #8e2de2;
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .feature i {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #66ccff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SpeedIntel</h1>
+        <p>Optimiza tu conexión, reduce el ping y mejora el rendimiento en tus juegos.</p>
+        <a href="#" class="download-btn">Descargar Ahora</a>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-gamepad"></i>
+                <h3>Mejor FPS</h3>
+                <p>Aumenta la tasa de frames en tus juegos para una experiencia más fluida.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-wifi"></i>
+                <h3>Ping Más Bajo</h3>
+                <p>Optimiza tu conexión para obtener la menor latencia posible.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-microchip"></i>
+                <h3>Optimización Avanzada</h3>
+                <p>Mejora el rendimiento de tu PC eliminando procesos innecesarios.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
