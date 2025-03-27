@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedIntel - Optimización de Ping y FPS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@600&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1c1c3c, #4f4f9d);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Animación de la página */
+        .fadeIn {
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo de la caja principal */
+        .main-container {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 40px;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 6em;
+            color: #66ccff;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px #66ccff, 0 0 30px #ff00b0;
+            margin-bottom: 30px;
+            animation: titleEffect 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleEffect {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+            50% { transform: scale(1.1) rotate(15deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 18px 70px;
+            font-size: 2.2em;
+            color: white;
+            background: linear-gradient(45deg, #8e2de2, #4a00e0);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 40px rgba(142, 45, 226, 0.7);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .download-btn:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 60px #8e2de2;
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .image-container img {
+            width: 45%;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilo de los logos cayendo estilo Matrix */
+        .side-logos {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .side-logos-left, .side-logos-right {
+            position: relative;
+            width: 50px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .side-logos-left img, .side-logos-right img {
+            width: 50px;
+            height: auto;
+            animation: matrixFall 3s linear infinite;
+        }
+
+        @keyframes matrixFall {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(100vh); opacity: 1; }
+        }
+
+        .side-logos-left img:nth-child(odd) {
+            animation-duration: 4s;
+        }
+
+        .side-logos-right img:nth-child(odd) {
+            animation-duration: 5s;
+        }
+
+        .side-logos-left img:nth-child(even) {
+            animation-duration: 6s;
+        }
+
+        .side-logos-right img:nth-child(even) {
+            animation-duration: 7s;
+        }
+
+        /* Nueva sección informativa con animaciones suaves */
+        .info-section {
+            margin-top: 100px;
+            padding: 60px 50px;
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            border-radius: 30px;
+            box-shadow: 0 0 80px rgba(142, 45, 226, 0.8);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: infoFadeIn 1.5s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .info-section h2 {
+            font-size: 2.8em;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .info-section p {
+            font-size: 1.4em;
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        @keyframes infoFadeIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>SpeedIntel</h1>
+        <p>Optimiza tu conexión, reduce el ping y sube tus FPS con nuestra aplicación de optimización avanzada.</p>
+        <a href="https://gofile.io/d/Hqp7pd" class="download-btn" target="_blank">Descargar Ahora</a>
+        <div class="image-container">
+            <img src="https://i.ytimg.com/vi/4rpZ7DyIniw/maxresdefault.jpg" alt="SpeedIntel Booster">
+            <img src="https://i.redd.it/oznlldmxjgf31.jpg" alt="Optimización al máximo">
+        </div>
+    </div>
+
+    <!-- Logos flotantes cayendo de izquierda y derecha -->
+    <div class="side-logos">
+        <div class="side-logos-left">
+            <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000493988/design/2024-06-12_d15f8e7cea629.png?x-oss-process=image/resize,w_1000/format,webp" alt="Logo 1">
+            <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000493988/design/2024-06-12_d15f8e7cea629.png?x-oss-process=image/resize,w_1000/format,webp" alt="Logo 2">
+        </div>
+        <div class="side-logos-right">
+            <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000493988/design/2024-06-12_d15f8e7cea629.png?x-oss-process=image/resize,w_1000/format,webp" alt="Logo 3">
+            <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000493988/design/2024-06-12_d15f8e7cea629.png?x-oss-process=image/resize,w_1000/format,webp" alt="Logo 4">
+        </div>
+    </div>
+
+    <!-- Información que aparece con animación suave -->
+    <div class="info-section">
+        <h2>¿Por qué SpeedIntel?</h2>
+        <p>SpeedIntel está diseñado para mejorar tu experiencia de juego optimizando el ping y los FPS en tus juegos más exigentes. ¡Haz que tu conexión sea tan rápida como tu reflejo!</p>
+        <p>Gracias a nuestra optimización avanzada, puedes concentrarte en lo que más importa: ganar.</p>
+    </div>
+
+</body>
+</html>
